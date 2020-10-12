@@ -14,7 +14,7 @@ var    Campground    =require("./models/campground"),
 var commentRoutes    = require("./routes/comments"),
     campgroundRoutes =require("./routes/campground"),
     authRoutes       =require("./routes/index");       
-
+    var port = process.env.port || 3000;
 
 
 mongoose.connect('mongodb+srv://yelpcamp:swati1293%23@cluster0.ikxyc.mongodb.net/yelpcamp?retryWrites=true&w=majority', {
@@ -57,4 +57,4 @@ app.use("/",authRoutes);
 app.use("/campgrounds/:id/comments",commentRoutes);
 app.use("/campgrounds",campgroundRoutes);
 
-app.listen(3000);
+app.listen(port);
