@@ -34,7 +34,7 @@ app.use(methodOverride("_method"));
 
 //passport configuration
 app.use(flash());
-app.use(require("express-session")({
+app.use(require("cookie-session")({
     secret:"Swati is the best",
     resave:false,
     saveUninitialized:false
