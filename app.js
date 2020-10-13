@@ -14,7 +14,7 @@ var    Campground    =require("./models/campground"),
 var commentRoutes    = require("./routes/comments"),
     campgroundRoutes =require("./routes/campground"),
     authRoutes       =require("./routes/index");       
-    var port = process.env.port || 3000;
+
 
 
 mongoose.connect('mongodb+srv://yelpcamp:swati1293%23@cluster0.ikxyc.mongodb.net/yelpcamp?retryWrites=true&w=majority', {
@@ -34,7 +34,7 @@ app.use(methodOverride("_method"));
 
 //passport configuration
 app.use(flash());
-app.use(require("cookie-session")({
+app.use(require("express-session")({
     secret:"Swati is the best",
     resave:false,
     saveUninitialized:false
@@ -57,4 +57,5 @@ app.use("/",authRoutes);
 app.use("/campgrounds/:id/comments",commentRoutes);
 app.use("/campgrounds",campgroundRoutes);
 
-app.listen(port);
+var port_number = server.listen(process.env.PORT || 3000);
+app.listen(port_number);
